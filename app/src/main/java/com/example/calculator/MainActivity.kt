@@ -2,10 +2,15 @@ package com.example.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main)
+        val button0 = findViewById<Button>(R.id.button0)
+        button0.setOnClickListener{
+            val textView = findViewById<>(R.id.)
+        }
     }
 }
