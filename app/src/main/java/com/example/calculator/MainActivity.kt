@@ -21,80 +21,80 @@ class MainActivity : AppCompatActivity() {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "0"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button1 = findViewById<Button>(R.id.button1)
         button1.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "1"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button2 = findViewById<Button>(R.id.button2)
         button2.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "2"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button3 = findViewById<Button>(R.id.button3)
         button3.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "3"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button4 = findViewById<Button>(R.id.button4)
         button4.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "4"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button5 = findViewById<Button>(R.id.button5)
         button5.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "5"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button6 = findViewById<Button>(R.id.button6)
         button6.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "6"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button7 = findViewById<Button>(R.id.button7)
         button7.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "7"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button8 = findViewById<Button>(R.id.button8)
         button8.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "8"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val button9 = findViewById<Button>(R.id.button9)
         button9.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "9"
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd".toDouble()
         }
         val buttonC = findViewById<Button>(R.id.buttonC)
         buttonC.setOnClickListener {
@@ -259,8 +259,8 @@ class MainActivity : AppCompatActivity() {
                 "."
             }
             val zero = 0
-            textView.text = "$cur $toAdd"
-            calculatedVar = "$cur $toAdd $zero".toDouble()
+            textView.text = "$cur$toAdd"
+            calculatedVar = "$cur$toAdd$zero".toDouble()
         }
         val buttonNegate = findViewById<Button>(R.id.buttonNegate)
         buttonNegate.setOnClickListener {
@@ -273,13 +273,13 @@ class MainActivity : AppCompatActivity() {
             }
             val zero = 0
             textView.text = if (toAdd == "-") {
-                "$toAdd $cur"
+                "$toAdd$cur"
             } else {
                 cur = cur.substring(1)
                 cur
             }
             calculatedVar = if (textView.text.last().toString() == ".") {
-                "$toAdd $cur $zero".toDouble()
+                "$toAdd$cur$zero".toDouble()
             } else {
                 textView.text.toString().toDouble()
             }
@@ -298,7 +298,7 @@ class MainActivity : AppCompatActivity() {
                 compuStack.push(calculatedVar)
             } else if (compuStack.size == 1) {
                 val curr = textView.text
-                textView.text = "$curr $toAdd"
+                textView.text = "$curr$toAdd"
             } else {
                 val rightSide = compuStack.pop()
                 val leftSide = compuStack.pop()
