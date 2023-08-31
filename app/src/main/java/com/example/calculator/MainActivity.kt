@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         val button3 = findViewById<Button>(R.id.button3)
         button3.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
-
             val cur = textView.text
             val toAdd = "3"
             textView.text = "$cur$toAdd"
@@ -265,7 +264,6 @@ class MainActivity : AppCompatActivity() {
                 lastNum /= 100.0
                 textView.text = lastNum.toString()
                 compuStack.push(lastNum)
-
             }
         }
     }
