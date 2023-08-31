@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val button0 = findViewById<Button>(R.id.button0)
         button0.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button0)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "0"
             textView.text = "$cur $toAdd"
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button1 = findViewById<Button>(R.id.button1)
         button1.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button1)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "1"
             textView.text = "$cur $toAdd"
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button2 = findViewById<Button>(R.id.button2)
         button2.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button2)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "2"
             textView.text = "$cur $toAdd"
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button3 = findViewById<Button>(R.id.button3)
         button3.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button3)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "3"
             textView.text = "$cur $toAdd"
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button4 = findViewById<Button>(R.id.button4)
         button4.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button4)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "4"
             textView.text = "$cur $toAdd"
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button5 = findViewById<Button>(R.id.button5)
         button5.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button5)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "5"
             textView.text = "$cur $toAdd"
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button6 = findViewById<Button>(R.id.button6)
         button6.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button6)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "6"
             textView.text = "$cur $toAdd"
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button7 = findViewById<Button>(R.id.button7)
         button7.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button7)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "7"
             textView.text = "$cur $toAdd"
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button8 = findViewById<Button>(R.id.button8)
         button8.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button8)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "8"
             textView.text = "$cur $toAdd"
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button9 = findViewById<Button>(R.id.button9)
         button9.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.button9)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "9"
             textView.text = "$cur $toAdd"
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonC = findViewById<Button>(R.id.buttonClear)
         buttonC.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.buttonClear)
+            val textView = findViewById<TextView>(R.id.mainText)
             textView.text = ""
             if (!compuStack.isEmpty()){
                 compuStack.pop()
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonAdd = findViewById<Button>(R.id.buttonAddition)
         buttonAdd.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.buttonAddition)
+            val textView = findViewById<TextView>(R.id.mainText)
             val toAdd = "+"
             textView.text = toAdd
             if (compuStack.isEmpty()){
@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonSubtract = findViewById<Button>(R.id.buttonSubtract)
         buttonSubtract.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.buttonSubtract)
+            val textView = findViewById<TextView>(R.id.mainText)
             val toAdd = "-"
             textView.text = toAdd
             if (compuStack.isEmpty()){
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonMultiply = findViewById<Button>(R.id.buttonX)
         buttonMultiply.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.buttonX)
+            val textView = findViewById<TextView>(R.id.mainText)
             val toAdd = "x"
             textView.text = toAdd
             if (compuStack.isEmpty()){
@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonDivide = findViewById<Button>(R.id.buttonDivide)
         buttonDivide.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.buttonDivide)
+            val textView = findViewById<TextView>(R.id.mainText)
             val toAdd = "/"
             textView.text = toAdd
             if (compuStack.isEmpty()){
@@ -240,7 +240,7 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonDecimal = findViewById<Button>(R.id.buttonDecimal)
         button0.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.buttonDecimal)
+            val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "."
             val zero = 0
