@@ -9,7 +9,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private var calculatedVar = 0.0
     private val compuStack = ArrayDeque<Double>()
-    private var currentOperator = ""
+    private val operStack = ArrayDeque<String>()
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -116,28 +116,8 @@ class MainActivity : AppCompatActivity() {
             textView.text = toAdd
             if (compuStack.isEmpty()) {
                 compuStack.push(calculatedVar)
-                currentOperator = "+"
-            } else if (compuStack.size == 1) {
-            } else {
-                val rightSide = compuStack.pop()
-                val leftSide = compuStack.pop()
-                if (currentOperator == "+") {
-                    calculatedVar = leftSide + rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "-") {
-                    calculatedVar = leftSide - rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "x") {
-                    calculatedVar = leftSide * rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else {
-                    calculatedVar = leftSide / rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                }
+            } else if (compuStack.size % 2 != 0) {
+                operStack.push("+")
             }
         }
         val buttonSubtract = findViewById<Button>(R.id.buttonSubtract)
@@ -152,28 +132,8 @@ class MainActivity : AppCompatActivity() {
             textView.text = toAdd
             if (compuStack.isEmpty()) {
                 compuStack.push(calculatedVar)
-                currentOperator = "-"
-            } else if (compuStack.size == 1) {
-            } else {
-                val rightSide = compuStack.pop()
-                val leftSide = compuStack.pop()
-                if (currentOperator == "+") {
-                    calculatedVar = leftSide + rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "-") {
-                    calculatedVar = leftSide - rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "x") {
-                    calculatedVar = leftSide * rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else {
-                    calculatedVar = leftSide / rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                }
+            } else if (compuStack.size % 2 != 0) {
+                operStack.push("-")
             }
         }
 
@@ -189,29 +149,10 @@ class MainActivity : AppCompatActivity() {
             textView.text = toAdd
             if (compuStack.isEmpty()) {
                 compuStack.push(calculatedVar)
-                currentOperator = "x"
-            } else if (compuStack.size == 1) {
-            } else {
-                val rightSide = compuStack.pop()
-                val leftSide = compuStack.pop()
-                if (currentOperator == "+") {
-                    calculatedVar = leftSide + rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "-") {
-                    calculatedVar = leftSide - rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "x") {
-                    calculatedVar = leftSide * rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else {
-                    calculatedVar = leftSide / rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                }
+            } else if (compuStack.size % 2 != 0) {
+                operStack.push("*")
             }
+
         }
         val buttonDivide = findViewById<Button>(R.id.buttonDivide)
         buttonDivide.setOnClickListener {
@@ -225,28 +166,8 @@ class MainActivity : AppCompatActivity() {
             textView.text = toAdd
             if (compuStack.isEmpty()) {
                 compuStack.push(calculatedVar)
-                currentOperator = "/"
-            } else if (compuStack.size == 1) {
-            } else {
-                val rightSide = compuStack.pop()
-                val leftSide = compuStack.pop()
-                if (currentOperator == "+") {
-                    calculatedVar = leftSide + rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "-") {
-                    calculatedVar = leftSide - rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "x") {
-                    calculatedVar = leftSide * rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else {
-                    calculatedVar = leftSide / rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                }
+            } else if (compuStack.size % 2 != 0) {
+                operStack.push("/")
             }
         }
         val buttonDecimal = findViewById<Button>(R.id.buttonDecimal)
@@ -276,7 +197,7 @@ class MainActivity : AppCompatActivity() {
                 "$toAdd$cur"
             } else {
                 cur = cur.substring(1)
-                cur
+                cur.toString()
             }
             calculatedVar = if (textView.text.last().toString() == ".") {
                 "$toAdd$cur$zero".toDouble()
@@ -300,24 +221,17 @@ class MainActivity : AppCompatActivity() {
                 val curr = textView.text
                 textView.text = "$curr$toAdd"
             } else {
-                val rightSide = compuStack.pop()
-                val leftSide = compuStack.pop()
-                if (currentOperator == "+") {
-                    calculatedVar = leftSide + rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "-") {
-                    calculatedVar = leftSide - rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else if (currentOperator == "x") {
-                    calculatedVar = leftSide * rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
-                } else {
-                    calculatedVar = leftSide / rightSide
-                    compuStack.push(calculatedVar)
-                    textView.text = "$calculatedVar"
+                var compuString = ""
+                while (!compuStack.isEmpty() and !operStack.isEmpty()) {
+                    val num = compuStack.pop()
+                    val oper = operStack.pop()
+                    if (!operStack.isEmpty()) {
+                        compuString = "$oper$num$compuString"
+                    }
+                    else{
+                        val num = compuStack.pop()
+                        compuString = "$num$compuString"
+                    }
                 }
             }
         }
