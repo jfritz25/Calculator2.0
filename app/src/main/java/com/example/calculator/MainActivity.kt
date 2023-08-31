@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import java.util.*
-
 class MainActivity : AppCompatActivity() {
     private var calculatedVar = 0.0
     private val compuStack = ArrayDeque<Double>()
     private val operStack = ArrayDeque<String>()
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -221,18 +221,60 @@ class MainActivity : AppCompatActivity() {
                 val curr = textView.text
                 textView.text = "$curr$toAdd"
             } else {
-                var compuString = ""
+                var compuList = mutableListOf<String>()
                 while (!compuStack.isEmpty() and !operStack.isEmpty()) {
                     val num = compuStack.pop()
                     val oper = operStack.pop()
                     if (!operStack.isEmpty()) {
-                        compuString = "$oper$num$compuString"
-                    }
-                    else{
+                        compuList.add(num.toString())
+                        compuList.add(oper)
+                    } else {
                         val num = compuStack.pop()
-                        compuString = "$num$compuString"
+                        compuList.add(num.toString())
                     }
                 }
+                while (compuList.size != 1) {
+                    while (compuList.contains("*") or compuList.contains("/")) {
+                        var indexM = compuList.indexOf("*")
+                        var indexD = compuList.indexOf("/")
+                        if (indexM < indexD) {
+                            var value =
+                                compuList[indexM - 1].toDouble() * compuList[indexM + 1].toDouble()
+                            compuList.subList(indexM - 1, indexM + 2).clear()
+                            compuList.add(indexM - 1, value.toString())
+                        } else {
+                            var value =
+                                compuList[indexD - 1].toDouble() / compuList[indexD + 1].toDouble()
+                            compuList.subList(indexD - 1, indexD + 2).clear()
+                            compuList.add(indexD - 1, value.toString())
+                        }
+                    }
+                    while (compuList.contains("+") or compuList.contains("-")) {
+                        var indexA = compuList.indexOf("+")
+                        var indexS = compuList.indexOf("-")
+                        if (indexA < indexS) {
+                            var value =
+                                compuList[indexA - 1].toDouble() + compuList[indexA + 1].toDouble()
+                            compuList.subList(indexA - 1, indexA + 2).clear()
+                            compuList.add(indexA - 1, value.toString())
+                        } else {
+                            var value =
+                                compuList[indexS - 1].toDouble() / compuList[indexS + 1].toDouble()
+                            compuList.subList(indexS - 1, indexS + 2).clear()
+                            compuList.add(indexS - 1, value.toString())
+                        }
+                    }
+                    textView.text = compuList[0]
+                }
+            }
+            val buttonPercent = findViewById<Button>(R.id.buttonPercent)
+            buttonPercent.setOnClickListener {
+                val textView = findViewById<TextView>(R.id.mainText)
+                var lastNum = compuStack.pop()
+                lastNum /= 100.0
+                textView.text = lastNum.toString()
+                compuStack.push(lastNum)
+
             }
         }
     }
