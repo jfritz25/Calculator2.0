@@ -15,7 +15,7 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/compTV"
+            android:id="@+id/mainText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
@@ -52,12 +52,12 @@
     <LinearLayout
         style="@style/buttonRow">
         <Button
-            android:id="@+id/buttonClear"
+            android:id="@+id/buttonC"
             style="@style/buttonSymbol"
             android:onClick="symbolSymbol"
             android:text="C"/>
         <Button
-            android:id="@+id/buttonNegation"
+            android:id="@+id/buttonNegate"
             style="@style/buttonSymbol"
             android:onClick="symbolSymbol"
             android:text="+/-"/>
@@ -88,7 +88,7 @@
             style="@style/buttonNumber"
             android:text="9"/>
         <Button
-            android:id="@+id/buttonX"
+            android:id="@+id/buttonMultiply"
             android:onClick="symbolSymbol"
             style="@style/buttonSymbol"
             android:text="X"/>
@@ -122,7 +122,7 @@
             style="@style/buttonNumber"
             android:text="3"/>
         <Button
-            android:id="@+id/buttonAddition"
+            android:id="@+id/buttonAdd"
             style="@style/buttonSymbol"
             android:onClick="symbolSymbol"
             android:text="+"/>
@@ -136,7 +136,7 @@
             android:onClick="symbolSymbol"
             android:text="."/>
         <Button
-            android:id="@+id/buttonEqual"
+            android:id="@+id/buttonEquals"
             style="@style/buttonSymbol"
             android:onClick="symbolSymbol"
             android:text="="/>
