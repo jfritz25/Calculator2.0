@@ -12,13 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:padding="20dp">
+        android:padding="2dp">
 
         <TextView
             android:id="@+id/mainText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@string/Error"
+            android:textAlignment="textEnd"
 
             android:lines="2"
             android:maxLines="2"
@@ -54,6 +55,10 @@
             style="@style/buttonSymbol"
             android:onClick="symbolSymbol"
             android:text="/"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/buttonRow">
         <Button
             android:id="@+id/button7"
             style="@style/buttonNumber"
@@ -65,7 +70,6 @@
             style="@style/buttonNumber"
             android:text="8"
             android:textColor="@android:color/white"/>
-        />
         <Button
             android:id="@+id/button9"
             style="@style/buttonNumber"
@@ -75,6 +79,10 @@
             android:onClick="symbolSymbol"
             style="@style/buttonSymbol"
             android:text="X"/>
+
+    </LinearLayout>
+    <LinearLayout
+        style="@style/buttonRow">
         <Button
             android:id="@+id/button4"
             style="@style/buttonNumber"
@@ -92,6 +100,9 @@
             android:onClick="symbolSymbol"
             style="@style/buttonSymbol"
             android:text="-"/>
+    </LinearLayout>
+        <LinearLayout
+            style="@style/buttonRow">
         <Button
             android:id="@+id/button1"
             style="@style/buttonNumber"
@@ -109,6 +120,9 @@
             style="@style/buttonSymbol"
             android:onClick="symbolSymbol"
             android:text="+"/>
+         </LinearLayout>
+        <LinearLayout
+            style="@style/buttonRow">
         <Button
             android:id="@+id/button0"
             style="@style/buttonNumber"

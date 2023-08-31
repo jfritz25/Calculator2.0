@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button0 = findViewById<Button>(R.id.button0)
-        button0.setOnClickListener {
+
+        button0.setOnClickListener{
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "0"
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             calculatedVar = "$cur$toAdd".toDouble()
         }
         val button1 = findViewById<Button>(R.id.button1)
+
         button1.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         val button3 = findViewById<Button>(R.id.button3)
         button3.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
+
             val cur = textView.text
             val toAdd = "3"
             textView.text = "$cur$toAdd"
@@ -116,6 +119,7 @@ class MainActivity : AppCompatActivity() {
             textView.text = toAdd
             if (compuStack.isEmpty()) {
                 compuStack.push(calculatedVar)
+
             } else if (compuStack.size % 2 != 0) {
                 operStack.push("+")
             }
@@ -137,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         val buttonMultiply = findViewById<Button>(R.id.buttonMultiply)
         buttonMultiply.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
@@ -146,14 +151,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 "*"
             }
-            textView.text = toAdd
-            if (compuStack.isEmpty()) {
-                compuStack.push(calculatedVar)
-            } else if (compuStack.size % 2 != 0) {
-                operStack.push("*")
-            }
-
-        }
         val buttonDivide = findViewById<Button>(R.id.buttonDivide)
         buttonDivide.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
@@ -163,14 +160,8 @@ class MainActivity : AppCompatActivity() {
             } else {
                 "/"
             }
-            textView.text = toAdd
-            if (compuStack.isEmpty()) {
-                compuStack.push(calculatedVar)
-            } else if (compuStack.size % 2 != 0) {
-                operStack.push("/")
-            }
-        }
         val buttonDecimal = findViewById<Button>(R.id.buttonDecimal)
+
         buttonDecimal.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
