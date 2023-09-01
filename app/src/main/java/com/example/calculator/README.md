@@ -1,5 +1,5 @@
 # Project_01 - Calculator App
-** Jacob Fritz and Ashley Steitz worked on this as partners **
+**Jacob Fritz and Ashley Steitz worked on this as partners**
 ---
 In our efforts to complete Project 01 we implemented an interactive Ui (User Interface) that allows the user to select numbers 0-9 in addition
 to symbols such as '*' for Multiplication, 'X' for Division, '+' for Addition, '=' for Total, 'C' for Clear, and '+/-' for Negation.
@@ -14,7 +14,7 @@ We have integrated a scalable approach for the user to build up their computatio
 
 ---
 > # Testcases
-## Testcase 1 - Only * and /
+## Testcase 1 - Only Multiplication and Division
 Input => 4*8/3/2*4 =
 Output_iPhone => 21.333
 Output_OurCalculator => 21.333
