@@ -314,6 +314,7 @@ class MainActivity : AppCompatActivity() {
                 val buttonEquals = findViewById<Button>(R.id.buttonEquals)
                 buttonEquals.setOnClickListener {
                     val textView = findViewById<TextView>(R.id.mainText)
+
                     var toAdd = ""
                     toAdd = if (textView.text.last().toString() == ".") {
                         "0"
