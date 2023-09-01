@@ -15,18 +15,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main)  // uses the layout from the activity_main.xml file
         var calculatedVar = 0.0                // used to compute the value
         val compuStack = ArrayDeque<Double>() // set as double in case a decimal is included
         val operStack = ArrayDeque<String>() // set as string because operators are stored as a str "+","-",etc.
         var lastClicked = ""                // used for tracking the last value entered to see if the number is part of a larger number or start of an opr.
-
         // when the 0 button is clicked
         val button0 = findViewById<Button>(R.id.button0)
         button0.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
             val cur = textView.text
             val toAdd = "0"
+
             // add this to the stack and if there was an opperator collected then add that to the string
             if (lastClicked in arrayOf("*", "+", "-", "/")) {
                 textView.text = "$toAdd"
@@ -201,7 +202,9 @@ class MainActivity : AppCompatActivity() {
         val buttonC = findViewById<Button>(R.id.buttonC)
         buttonC.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
+
             // this indicates the user pressed C x2 and wants to RESTART their computation so we clear BOTH stacks and set the value to 0 in text and computations
+
             if (lastClicked == "C") {
                 textView.text = ""
                 while (!compuStack.isEmpty()) {
@@ -210,6 +213,7 @@ class MainActivity : AppCompatActivity() {
                 while (!operStack.isEmpty()){
                     operStack.pop()
                 }
+
             }
             // this means the last value was a opr. and we just need the text to dispplay as " "
             else if(lastClicked in arrayOf("*", "+", "-", "/")){
@@ -221,6 +225,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = ""
             }
             // set the last clicked value to C
+
             lastClicked = "C"
         }
         // This is when the last value pressed was an OPERATOR
@@ -524,6 +529,7 @@ class MainActivity : AppCompatActivity() {
             textView.text = lastNum.toString()
             calculatedVar = lastNum
             lastClicked = "%"
+
         }
     }
 }
