@@ -17,13 +17,13 @@ We have integrated a scalable approach for the user to build up their computatio
 > # Testcases
 ## Testcase 1 - Only Multiplication and Division
 Input => 4*8/3/2*4 =
-Output_iPhone => 21.333
-Output_OurCalculator => 21.333
+Output_iPhone => 21.333 (repeating)
+Output_OurCalculator => 21.333 (repeating)
 
 ## Testcase 2 - Using addition, subtraction, multiplication, division, and taking the percent
 Input => 4+8-3/2+4%*5 =
-Output_iPhone =>
-Output_OurCalculator =>
+Output_iPhone => 12.6
+Output_OurCalculator => 10.7
 
 ## Testcase 3 - Addition
 Input => 4+8+3+2+4 =
@@ -49,8 +49,8 @@ Output_OurCalculator =>0.020833
 
 ## Testcase 7 - A random mix
 Input => 4*8/3/2(+/-)*4 =
-Output_iPhone => -21.333
-Output_OurCalculator => -21.333
+Output_iPhone => -21.333 (repeating)
+Output_OurCalculator => -21.333 (repeating)
 
 ## Testcase 8 - Mixin' it Up
 Input => 4*8/3/2*4 =
@@ -81,5 +81,10 @@ Output_OurCalculator => 22.66
 Input => 42*455 =
 Output_iPhone => 19110
 Output_OurCalculator => 22.66
+
+## Testcase 14 - Complex Ex 
+Input => 8%(+-)/9 =
+Output_iPhone => -0.0888 (repeating)
+Output_OurCalculator => -0.0888 (repeating)
 
 
