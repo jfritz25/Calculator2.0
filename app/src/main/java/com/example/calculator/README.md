@@ -1,5 +1,5 @@
 # Project_01 - Calculator App
-###**Jacob Fritz and Ashley Steitz worked on this as partners**
+#####**Ashley Steitz and Jacob Fritz worked on this as partners**
 ---
 In our efforts to complete Project 01 we implemented an interactive Ui (User Interface) that allows the user to select numbers 0-9 in addition
 to symbols such as '*' for Multiplication, 'X' for Division, '+' for Addition, '=' for Total, 'C' for Clear, and '+/-' for Negation.
