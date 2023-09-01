@@ -44,7 +44,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 UI Challenges:
 - Obtaining the rounded edges using ont he buttons 
-  - For me the challenge came from having the android:radius = "3dp" rather than the needed app:cornerRadius = "3dp"
+  - For me the challenge came from having the android:radius = "3dp" rather than the needed app:cornerRadius = "3dp" approach
 - Setting a style sheet to contain most of the styling factors to limit the code in the driver xml file
 - Figuring out the format of having a rowButton _LinearLayout_ to encapsulate the Buttons in the activity_main.xml to have the buttons sit next to eachother
 Describe any challenges encountered while building the app.
