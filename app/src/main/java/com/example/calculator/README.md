@@ -16,59 +16,59 @@ We have integrated a scalable approach for the user to build up their computatio
 > # Testcases
 ## Testcase 1 - Only * and /
 Input => 4*8/3/2*4 =
-Output_IPhone => 21.333
+Output_iPhone => 21.333
 Output_OurCalculator => 21.333
 
 ## Testcase 2 - Using addition, subtraction, multiplication, division, and taking the percent
 Input => 4+8-3/2+4%*5 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 3 - Addition
 Input => 4+8+3+2+4 =
-Output_IPhone =>
-Output_OurCalculator =>
+Output_iPhone => 21
+Output_OurCalculator => 21
 
 ## Testcase 4 - Subtraction
-Input => 4-8-3-2-4 =
-Output_IPhone =>
-Output_OurCalculator =>
+Input => 1-2-7-9-5 =
+Output_iPhone => -22
+Output_OurCalculator => -22
 
 
 ## Testcase 5 - Multiply
 Input => 4*8*3*2*4 =
-Output_IPhone =>
-Output_OurCalculator =>
+Output_IPhone => 768
+Output_OurCalculator => 768
 
 
 ## Testcase 6 - Dividing
 Input => 4/8/3/2/4 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 7 - A random mix
 Input => 4*8/3/2(+/-)*4 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 8 - Mixin' it Up
 Input => 4*8/3/2*4 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 9 - clearing the number 3 then continuing with last computation
 Input => 4%8+3C2*4 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 10 - Clearing all before the last computation
 Input => 4*8/3CC2*4 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 11 - Using Decimal
 Input => 4*8.5/3/2*4 =
-Output_IPhone =>
+Output_iPhone =>
 Output_OurCalculator =>
 
 
