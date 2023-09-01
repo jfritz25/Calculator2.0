@@ -1,4 +1,3 @@
-# Project_01 Calculator App
 # Project_01 - Calculator App
 <span style="font-size: smaller;"><strong>Ashley Steitz and Jacob Fritz worked on this as partners</strong></span>
 
@@ -42,8 +41,20 @@ Here's a walkthrough of implemented user stories:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
-
+UI Challenges:
+- Obtaining the rounded edges using ont he buttons 
+  - For me the challenge came from having the android:radius = "3dp" rather than the needed app:cornerRadius = "3dp" approach
+- Setting a style sheet to contain most of the styling factors to limit the code in the driver xml file
+- Figuring out the format of having a rowButton _LinearLayout_ to encapsulate the Buttons in the activity_main.xml to have the buttons sit next to eachother
 Describe any challenges encountered while building the app.
+
+BACKEND Challenges:
+- Implementing P.E.M.D.A.S into our original implementation of a stack approach
+- Introducing decimals into the visual representation
+- Keeping the values consistent in their visuals (ex. 3.0 is seen as 3) if you were working with decimals at any point
+- Looking into how to handle % in the middle of an expression (value / 100) vs. comparing to the iPhone's implementation
+- Accounting for longer int's / double's by concatenating them and adding them to the respective arrays
+- Iterating through the array and completing (* and /) before (+ and -)
 
 ## License
 
