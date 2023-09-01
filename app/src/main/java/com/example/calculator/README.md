@@ -1,5 +1,5 @@
 # Project_01 - Calculator App
-#####**Ashley Steitz and Jacob Fritz worked on this as partners**
+**###Ashley Steitz and Jacob Fritz worked on this as partners**
 ---
 In our efforts to complete Project 01 we implemented an interactive Ui (User Interface) that allows the user to select numbers 0-9 in addition
 to symbols such as '*' for Multiplication, 'X' for Division, '+' for Addition, '=' for Total, 'C' for Clear, and '+/-' for Negation.
@@ -43,18 +43,18 @@ Output_OurCalculator => 768
 
 ## Testcase 6 - Dividing
 Input => 4/8/3/2/4 =
-Output_iPhone =>
-Output_OurCalculator =>
+Output_iPhone => 0.020833
+Output_OurCalculator =>0.020833
 
 ## Testcase 7 - A random mix
 Input => 4*8/3/2(+/-)*4 =
-Output_iPhone =>
-Output_OurCalculator =>
+Output_iPhone => -21.333
+Output_OurCalculator => -21.333
 
 ## Testcase 8 - Mixin' it Up
 Input => 4*8/3/2*4 =
-Output_iPhone =>
-Output_OurCalculator =>
+Output_iPhone => 1.3
+Output_OurCalculator => 1.3
 
 ## Testcase 9 - clearing the number 3 then continuing with last computation
 Input => 4%8+3C2*4 =
@@ -62,14 +62,23 @@ Output_iPhone =>
 Output_OurCalculator =>
 
 ## Testcase 10 - Clearing all before the last computation
-Input => 4*8/3CC2*4 =
-Output_iPhone =>
-Output_OurCalculator =>
+Input => 4*8/3CC2*4 = 
+Output_iPhone => 8
+Output_OurCalculator => 8
 
 ## Testcase 11 - Using Decimal
 Input => 4*8.5/3/2*4 =
-Output_iPhone =>
-Output_OurCalculator =>
+Output_iPhone => 22.66
+Output_OurCalculator => 22.66
 
+## Testcase 12 - Using Decimal
+Input => 4*8.5/3C/19*4 =
+Output_iPhone => 22.66
+Output_OurCalculator => 22.66
+
+## Testcase 13 - Big Numbers
+Input => 42*455 =
+Output_iPhone => 19110
+Output_OurCalculator => 22.66
 
 
