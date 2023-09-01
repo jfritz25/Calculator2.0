@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Define the usability and orientation in Linear Layout first then go into Constraint Layout to arrange this UI components -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,13 +8,15 @@
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+    <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:padding="20dp">
-
+        <!-- Defining the TextView for the main usage when called for the rowButton -->
+        <!-- Notes can't be made in but:
+        contains a reference for the .kt file, addresses PDF requirements, ensures text is horizontally centered at the top of its parent container.  -->
         <TextView
             android:id="@+id/mainText"
             android:layout_width="match_parent"
@@ -28,12 +31,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <!-- A LinearLayout with the style buttonRow defines the buttons in order of appearance for their respective rows (as seen on the calc) -->
     <LinearLayout style="@style/buttonRow">
-
+        <!-- this will be TOP LEFT button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/buttonC"
             style="@style/buttonSymbol"
@@ -41,6 +44,9 @@
             app:cornerRadius = "3dp"
             android:text="C" />
 
+
+        <!-- this will be the L MIDDLE button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/buttonNegate"
             style="@style/buttonSymbol"
@@ -48,6 +54,8 @@
             android:layout_margin="2dp"
             android:text="+/-" />
 
+        <!-- this will be the R MIDDLE button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/buttonPercent"
             style="@style/buttonSymbol"
@@ -56,6 +64,8 @@
             app:cornerRadius = "3dp"
             />
 
+        <!-- this will be the RIGHT button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/buttonDivide"
             style="@style/buttonSymbol"
@@ -64,8 +74,10 @@
             android:text="/" />
     </LinearLayout>
 
+    <!--  Same Process is followed as defined above   -->
     <LinearLayout style="@style/buttonRow">
 
+        <!--   Same Process for the Buttons follows as defined above     -->
         <Button
             android:id="@+id/button7"
             style="@style/buttonNumber"
@@ -163,8 +175,14 @@
             android:text="+" />
     </LinearLayout>
 
+    <!-- Linear Layout can stay consistent due to the constraints put in on the width following the parent's width :
+         - meaning the space is filled by the buttons below
+         - It auto fills the space with the content
+     -->
     <LinearLayout style="@style/buttonRow">
 
+        <!-- this will be the LEFT button seen in the BOTTOM row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/button0"
             style="@style/buttonNumber"
@@ -172,6 +190,8 @@
             android:layout_margin="2dp"
             android:text="0" />
 
+        <!-- this will be the CENTER button seen in the BOTTOM row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/buttonDecimal"
             style="@style/buttonSymbol"
@@ -179,13 +199,16 @@
             app:cornerRadius = "3dp"
             android:text="." />
 
+        <!-- this will be the RIGHT button seen in the BOTTOM row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
         <Button
             android:id="@+id/buttonEquals"
             style="@style/buttonSymbol"
             android:layout_margin="2dp"
             app:cornerRadius = "3dp"
             android:text="=" />
-    </LinearLayout>
 
+<!--   Closing Tags     -->
+    </LinearLayout>
 </LinearLayout>
 
