@@ -1,4 +1,3 @@
-# Project_01 Calculator App
 # Project_01 - Calculator App
 <span style="font-size: smaller;"><strong>Ashley Steitz and Jacob Fritz worked on this as partners</strong></span>
 
