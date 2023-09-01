@@ -1,3 +1,4 @@
+# Project_01 Calculator App
 # Project_01 - Calculator App
 <span style="font-size: smaller;"><strong>Ashley Steitz and Jacob Fritz worked on this as partners</strong></span>
 
@@ -7,112 +8,55 @@ to symbols such as '*' for Multiplication, 'X' for Division, '+' for Addition, '
 
 We have integrated a scalable approach for the user to build up their computation by:
 - Implementing a dual stack approach to populate 2 arrays
-  - Number_Stack 
+  - Number_Stack
   - Operator_Stack
 - Popping off the items off the stacks and adding into an array
 - Then using an iterative approach to search and build up the computation using a P.E.M.D.A.S approach
 
 
+## Functionality
+
+The following **required** functionality is completed:
+
+* [4*8/3/2*4] User sees: 21.333
+* [4+8-3/2+4%*5] User sees: 10.7
+* [4+8+3+2+4] User sees: 21
+* [1-2-7-9-5] User sees: -22
+* [4*8*3*2*4] User sees: 768
+* [4/8/3/2/4] User sees: 0.020833
+* [4*8/3/2(+/-)*4] User sees: -21.333
+* [4*8/3/2*4] User sees: 1.3
+* [4%8+3C2*4] User sees: 8
+* [4*8.5/3/2*4] User sees: 22.66
+* [4*8.5/3C/19*4] User sees: 7.15789
+* [42*455] User sees: 19110
+* [8%(+-)/9] User sees: -0.0888
+
 ---
-> # Testcases
-## Testcase 1 - Only Multiplication and Division
-Input => 4*8/3/2*4 =
+## Video Walkthrough
 
-Output_iPhone => 21.333 (repeating)
+Here's a walkthrough of implemented user stories:
 
-Output_OurCalculator => 21.333 (repeating)
+<img src='walkthrough.gif' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
 
-## Testcase 2 - Using addition, subtraction, multiplication, division, and taking the percent
-Input => 4+8-3/2+4%*5 =
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
-Output_iPhone => 12.6
+## Notes
 
-Output_OurCalculator => 10.7
+Describe any challenges encountered while building the app.
 
-## Testcase 3 - Addition
-Input => 4+8+3+2+4 =
+## License
 
-Output_iPhone => 21
+    Copyright [2023] [Ashley Steitz]
 
-Output_OurCalculator => 21
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-## Testcase 4 - Subtraction
-Input => 1-2-7-9-5 =
+        http://www.apache.org/licenses/LICENSE-2.0
 
-Output_iPhone => -22
-
-Output_OurCalculator => -22
-
-
-## Testcase 5 - Multiply
-Input => 4*8*3*2*4 =
-
-Output_IPhone => 768
-
-Output_OurCalculator => 768
-
-
-## Testcase 6 - Dividing
-Input => 4/8/3/2/4 =
-
-Output_iPhone => 0.020833
-
-Output_OurCalculator =>0.020833
-
-## Testcase 7 - A random mix
-Input => 4*8/3/2(+/-)*4 =
-
-Output_iPhone => -21.333 (repeating)
-
-Output_OurCalculator => -21.333 (repeating)
-
-## Testcase 8 - Mixin' it Up
-Input => 4*8/3/2*4 =
-
-Output_iPhone => 1.3
-
-Output_OurCalculator => 1.3
-
-## Testcase 9 - clearing the number 3 then continuing with last computation
-Input => 4%8+3C2*4 =
-
-Output_iPhone =>
-
-Output_OurCalculator =>
-
-## Testcase 10 - Clearing all before the last computation
-Input => 4*8/3CC2*4 =
-
-Output_iPhone => 8
-
-Output_OurCalculator => 8
-
-## Testcase 11 - Using Decimal
-Input => 4*8.5/3/2*4 =
-
-Output_iPhone => 22.66
-
-Output_OurCalculator => 22.66
-
-## Testcase 12 - Using Decimal
-Input => 4*8.5/3C/19*4 =
-
-Output_iPhone => 22.66
-
-Output_OurCalculator => 22.66
-
-## Testcase 13 - Big Numbers
-Input => 42*455 =
-
-Output_iPhone => 19110
-
-Output_OurCalculator => 22.66
-
-## Testcase 14 - Complex Ex 
-Input => 8%(+-)/9 = 
-
-Output_iPhone => -0.0888 (repeating)
-
-Output_OurCalculator => -0.0888 (repeating)
-
-
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
