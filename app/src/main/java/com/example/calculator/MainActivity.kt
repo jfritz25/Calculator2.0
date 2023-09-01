@@ -8,7 +8,7 @@ import java.lang.Math.abs
 import java.math.BigInteger
 import java.util.*
 class MainActivity : AppCompatActivity() {
-
+// Jacob Fritz and Ashley Steitz
 
     @SuppressLint("SetTextI18n")
     // creating stacks that are used when we create an instance of the button and set the stacks used for the operators and values
@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         val compuStack = ArrayDeque<Double>() // set as double in case a decimal is included
         val operStack = ArrayDeque<String>() // set as string because operators are stored as a str "+","-",etc.
         var lastClicked = ""                // used for tracking the last value entered to see if the number is part of a larger number or start of an opr.
+        val currCompStack = ArrayDeque<Double>()
+        val currOperStack = ArrayDeque<String>()
         // when the 0 button is clicked
         val button0 = findViewById<Button>(R.id.button0)
         button0.setOnClickListener {
@@ -213,15 +215,23 @@ class MainActivity : AppCompatActivity() {
                 while (!operStack.isEmpty()){
                     operStack.pop()
                 }
+                while (!currOperStack.isEmpty()){
+                    currOperStack.pop()
+                }
+                while (!currCompStack.isEmpty()){
+                    currCompStack.pop()
+                }
 
             }
-            // this means the last value was a opr. and we just need the text to dispplay as " "
+            // this means the last value was a opr. and we just need the text to display as " "
             else if(lastClicked in arrayOf("*", "+", "-", "/")){
                 textView.text = ""
             }
             // if the value is not a value then we set the calculated value and continue adding
             else{
-                calculatedVar = 0.0
+                if(compuStack.isEmpty()) { // If there is no numbers in the compustack we can reset calculated var
+                    calculatedVar = 0.0
+                }
                 textView.text = ""
             }
             // set the last clicked value to C
@@ -232,6 +242,7 @@ class MainActivity : AppCompatActivity() {
         // when "+" was last clicked
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonAdd.setOnClickListener {
+            val textView = findViewById<TextView>(R.id.mainText)
             // this want to push the last computation is a + then set last to a +
             if (lastClicked == "=") {
                 // push the last value the user wanted to compute
@@ -251,64 +262,181 @@ class MainActivity : AppCompatActivity() {
             }
             else {
                 // this is typically the first pressed item or after a clear
-                compuStack.push(calculatedVar)
-                operStack.push("+")
-                lastClicked = "+"
-            }
+                if (currCompStack.size >= 1) {
+                    val rightSide = if (currCompStack.size == 1){calculatedVar}
+                    else{currCompStack.pop()}
+                    val leftSide = currCompStack.pop()
+                    val op = currOperStack.pop()
+                    if (op == "/") {
+                        currCompStack.clear()
+                        currCompStack.push(leftSide / rightSide)
+                        textView.text = (leftSide / rightSide).toString()
+                    } else if (op == "*") {
+                        currCompStack.clear()
+                        currCompStack.push(leftSide * rightSide)
+                        textView.text = (leftSide * rightSide).toString()
+                    } else if (op == "+") {
+                        currCompStack.clear()
+                        currCompStack.push(leftSide + rightSide)
+                        textView.text = (leftSide + rightSide).toString()
+                    } else {
+                        currCompStack.clear()
+                        currCompStack.push(leftSide - rightSide)
+                        textView.text = (leftSide - rightSide).toString()
+                    }
+                }
+                    if (currCompStack.isEmpty()) {
+                        currCompStack.push(calculatedVar)
+                    }
+                    compuStack.push(calculatedVar)
+                    currOperStack.push("+")
+                    operStack.push("+")
+                    lastClicked = "+"
+                }
         }
         // this process is the same as the "+" operation
         val buttonSubtract = findViewById<Button>(R.id.buttonSubtract)
         buttonSubtract.setOnClickListener {
+            val textView = findViewById<TextView>(R.id.mainText)
             if (lastClicked == "=") {
-                operStack.push("-")
-                lastClicked = "-"
-            }
-            else if(lastClicked in arrayOf("*", "+", "-", "/")){
-                operStack.pop()
-                operStack.push("-")
-                lastClicked = "-"
-            }
-            else {
                 compuStack.push(calculatedVar)
                 operStack.push("-")
                 lastClicked = "-"
+            } else if (lastClicked in arrayOf("*", "+", "-", "/")) {
+                operStack.pop()
+                operStack.push("-")
+                lastClicked = "-"
+            } else {
+                    if (currCompStack.size >= 1) {
+                        val rightSide = if (currCompStack.size == 1) {
+                            calculatedVar
+                        } else {
+                            currCompStack.pop()
+                        }
+                        val leftSide = currCompStack.pop()
+                        val op = currOperStack.pop()
+                        if (op == "/") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide / rightSide)
+                            textView.text = (leftSide / rightSide).toString()
+                        } else if (op == "*") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide * rightSide)
+                            textView.text = (leftSide * rightSide).toString()
+                        } else if (op == "+") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide + rightSide)
+                            textView.text = (leftSide + rightSide).toString()
+                        } else {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide - rightSide)
+                            textView.text = (leftSide - rightSide).toString()
+                        }
+                    }
+                if (currCompStack.isEmpty()) {
+                    currCompStack.push(calculatedVar)
+                }
+                    compuStack.push(calculatedVar)
+                    currOperStack.push("-")
+                    operStack.push("-")
+                    lastClicked = "-"
             }
         }
 
         // this process is the same as the "+" operation
         val buttonMultiply = findViewById<Button>(R.id.buttonMultiply)
         buttonMultiply.setOnClickListener {
-            if(lastClicked == "="){
-                operStack.push("*")
-                lastClicked = "*"
-            }
-            else if(lastClicked in arrayOf("*", "+", "-", "/")){
-                operStack.pop()
-                operStack.push("*")
-                lastClicked = "*"
-            }
-            else {
+            val textView = findViewById<TextView>(R.id.mainText)
+            if (lastClicked == "=") {
                 compuStack.push(calculatedVar)
                 operStack.push("*")
                 lastClicked = "*"
+            } else if (lastClicked in arrayOf("*", "+", "-", "/")) {
+                operStack.pop()
+                operStack.push("*")
+                lastClicked = "*"
+            } else {
+                    if (currCompStack.size >= 1) {
+                        val rightSide = if (currCompStack.size == 1) {
+                            calculatedVar
+                        } else {
+                            currCompStack.pop()
+                        }
+                        val leftSide = currCompStack.pop()
+                        val op = currOperStack.pop()
+                        if (op == "/") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide / rightSide)
+                            textView.text = (leftSide / rightSide).toString()
+                        } else if (op == "*") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide * rightSide)
+                            textView.text = (leftSide * rightSide).toString()
+                        } else if (op == "+") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide + rightSide)
+                            textView.text = (leftSide + rightSide).toString()
+                        } else {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide - rightSide)
+                            textView.text = (leftSide - rightSide).toString()
+                        }
+                    }
+                if (currCompStack.isEmpty()) {
+                    currCompStack.push(calculatedVar)
+                }
+                    compuStack.push(calculatedVar)
+                    operStack.push("*")
+                    currOperStack.push("*")
+                    lastClicked = "*"
             }
         }
         // this process is the same as the "+" operation
         val buttonDivide = findViewById<Button>(R.id.buttonDivide)
         buttonDivide.setOnClickListener {
+            val textView = findViewById<TextView>(R.id.mainText)
             if (lastClicked == "=") {
-                operStack.push("/")
-                lastClicked = "/"
-            }
-            else if(lastClicked in arrayOf("*", "+", "-", "/")){
-                operStack.pop()
-                operStack.push("/")
-                lastClicked = "/"
-            }
-            else {
                 compuStack.push(calculatedVar)
                 operStack.push("/")
                 lastClicked = "/"
+            } else if (lastClicked in arrayOf("*", "+", "-", "/")) {
+                operStack.pop()
+                operStack.push("/")
+                lastClicked = "/"
+            } else {
+                    if (currCompStack.size >= 1) {
+                        val rightSide = if (currCompStack.size == 1) {
+                            calculatedVar
+                        } else {
+                            currCompStack.pop()
+                        }
+                        val leftSide = currCompStack.pop()
+                        val op = currOperStack.pop()
+                        if (op == "/") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide / rightSide)
+                            textView.text = (leftSide / rightSide).toString()
+                        } else if (op == "*") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide * rightSide)
+                            textView.text = (leftSide * rightSide).toString()
+                        } else if (op == "+") {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide + rightSide)
+                            textView.text = (leftSide + rightSide).toString()
+                        } else {
+                            currCompStack.clear()
+                            currCompStack.push(leftSide - rightSide)
+                            textView.text = (leftSide - rightSide).toString()
+                        }
+                    }
+                if (currCompStack.isEmpty()) {
+                    currCompStack.push(calculatedVar)
+                }
+                    compuStack.push(calculatedVar)
+                    operStack.push("/")
+                    currOperStack.push("/")
+                    lastClicked = "/"
             }
         }
         // this process takes the current value and converts it into a string
@@ -334,7 +462,7 @@ class MainActivity : AppCompatActivity() {
         val buttonNegate = findViewById<Button>(R.id.buttonNegate)
         buttonNegate.setOnClickListener {
             val textView = findViewById<TextView>(R.id.mainText)
-            var cur = calculatedVar.toInt().toString()
+            var cur = calculatedVar.toString()
             // if the calculated value is positive we need to make it negative
             val toAdd = if (calculatedVar > 0) {
                 "-"
@@ -502,7 +630,7 @@ class MainActivity : AppCompatActivity() {
                     if (compuList[0].contains(".0")) {
                         var leading = compuList[0].substring(0,compuList[0].indexOf(".")).toDouble()
                         // checks if the value is a decimal (ex 0.4 or 0.9999) then set text val to a str
-                        if (leading < kotlin.math.abs(compuList[0].toDouble())){
+                        if (kotlin.math.abs(leading) < kotlin.math.abs(compuList[0].toDouble())){
                             textView.text = compuList[0]
                         }
                         // otherwise we keep it appearing as an int (ex 1.0 or 3.0) then set text val to a str

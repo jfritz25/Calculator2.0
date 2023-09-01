@@ -17,23 +17,23 @@ We have integrated a scalable approach for the user to build up their computatio
 
 The following **required** functionality is completed:
 
-* [4*8/3/2*4] User sees: 21.333
-* [4+8-3/2+4%*5] User sees: 10.7
+* [4x8/3/2x4] User sees: 21.333 **
+* [4+8-3/2+4%*5] User sees: 10.7 **
 * [4+8+3+2+4] User sees: 21
 * [1-2-7-9-5] User sees: -22
-* [4*8*3*2*4] User sees: 768
+* [4x8x3x2x4] User sees: 768
 * [4/8/3/2/4] User sees: 0.020833
-* [4*8/3/2(+/-)*4] User sees: -21.333
-* [4*8/3/2*4] User sees: 1.3
-* [4%8+3C2*4] User sees: 8
-* [4*8.5/3/2*4] User sees: 22.66
-* [4*8.5/3C/19*4] User sees: 7.15789
-* [42*455] User sees: 19110
-* [8%(+-)/9] User sees: -0.0888
+* [4*8/3/2(+/-)x4] User sees: -21.333 **
+* [4x8/3/2x4] User sees: 21.33333
+* [4%x8+3C2x4] User sees: 8.32
+* [4x8.5/3/2x4] User sees: 22.66
+* [4x8.5/3C19x4] User sees: 7.15789 **
+* [42x455] User sees: 19110
+* [8%(+-)/9] User sees: -0.0888 **
 
 ---
 ## Video Walkthrough
-
+See Calculator Demo gif on Github
 Here's a walkthrough of implemented user stories:
 
 <img src='walkthrough.gif' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
