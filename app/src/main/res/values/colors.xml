@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#FFFFFFFF</color>
-    <color name="black">#FF000000</color>
-    <color name="background">#9B47FA</color>
+    // colors used in the app
+    <color name="white">#FFFFFFFF</color>   // used for numbers and symbols button
+    <color name="black">#FF000000</color>   // used for textView computation text
+    <color name="background">#9B47FA</color> // used for button background color
 </resources>
