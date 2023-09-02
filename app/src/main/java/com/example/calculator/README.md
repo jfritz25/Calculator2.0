@@ -2,6 +2,7 @@
 <span style="font-size: smaller;"><strong>Ashley Steitz and Jacob Fritz worked on this as partners</strong></span>
 
 ---
+<span style="font-size: smaller;"><strong> Description </strong> </span>
 In our efforts to complete Project 01 we implemented an interactive Ui (User Interface) that allows the user to select numbers 0-9 in addition
 to symbols such as '*' for Multiplication, 'X' for Division, '+' for Addition, '=' for Total, 'C' for Clear, and '+/-' for Negation.
 
@@ -14,7 +15,7 @@ We have integrated a scalable approach for the user to build up their computatio
 
 
 ## Functionality
-
+'**' indicates tested in GIF 
 The following **required** functionality is completed:
 
 * [4x8/3/2x4] User sees: 21.333 **
@@ -26,6 +27,7 @@ The following **required** functionality is completed:
 * [4*8/3/2(+/-)x4] User sees: -21.333 **
 * [4x8/3/2x4] User sees: 21.33333
 * [4%x8+3C2x4] User sees: 8.32
+* [4%x8+3CC2x4] User sees: 8
 * [4x8.5/3/2x4] User sees: 22.66
 * [4x8.5/3C19x4] User sees: 7.15789 **
 * [42x455] User sees: 19110
@@ -36,7 +38,7 @@ The following **required** functionality is completed:
 See Calculator Demo gif on Github
 Here's a walkthrough of implemented user stories:
 
-<img src='walkthrough.gif' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
+<img src='https://raw.github.iu.edu/jamfritz/Calculator/master/app/src/main/java/com/example/calculator/Calculator%20Demo.gif?token=GHSAT0AAAAAAAAAT6M5WZYLE4KCR2XN2GZKZH43KMA' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -53,12 +55,12 @@ BACKEND Challenges:
 - Introducing decimals into the visual representation
 - Keeping the values consistent in their visuals (ex. 3.0 is seen as 3) if you were working with decimals at any point
 - Looking into how to handle % in the middle of an expression (value / 100) vs. comparing to the iPhone's implementation
-- Accounting for longer int's / double's by concatenating them and adding them to the respective arrays
+- Accounting for longer int(s) / double(s) by concatenating them and adding them to the respective arrays
 - Iterating through the array and completing (* and /) before (+ and -)
 
 ## License
 
-    Copyright [2023] [Ashley Steitz]
+    Copyright [2023] [Ashley Steitz, Jacob Fritz]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
