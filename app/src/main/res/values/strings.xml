@@ -1,5 +1,5 @@
 <resources>
+    // strings that could be of use - didn't use
     <string name ="app_name">Calculator</string>
     <string name = "Error">Error</string>
-
 </resources>
