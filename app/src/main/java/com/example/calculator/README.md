@@ -17,6 +17,7 @@ We have integrated a scalable approach for the user to build up their computatio
 ## Functionality
 '**' indicates tested in GIF  
 The following **required** functionality is completed:
+<\n>
 <span style="font-size: smaller;"><strong> tested prior to change of C button as mentioned in the inscribe post made by Ashley Steitz </strong></span>
 
 
