@@ -207,7 +207,7 @@ class MainActivity : AppCompatActivity() {
 
             // this indicates the user pressed C x2 and wants to RESTART their computation so we clear BOTH stacks and set the value to 0 in text and computations
 
-            if (lastClicked == "C") {
+                // clears the stack
                 textView.text = ""
                 while (!compuStack.isEmpty()) {
                     compuStack.pop()
@@ -221,21 +221,6 @@ class MainActivity : AppCompatActivity() {
                 while (!currCompStack.isEmpty()){
                     currCompStack.pop()
                 }
-
-            }
-            // this means the last value was a opr. and we just need the text to display as " "
-            else if(lastClicked in arrayOf("*", "+", "-", "/")){
-                textView.text = ""
-            }
-            // if the value is not a value then we set the calculated value and continue adding
-            else{
-                if(compuStack.isEmpty()) { // If there is no numbers in the compustack we can reset calculated var
-                    calculatedVar = 0.0
-                }
-                textView.text = ""
-            }
-            // set the last clicked value to C
-
             lastClicked = "C"
         }
         // This is when the last value pressed was an OPERATOR
