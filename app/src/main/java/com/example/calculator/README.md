@@ -15,7 +15,8 @@ We have integrated a scalable approach for the user to build up their computatio
 
 
 ## Functionality
-'**' indicates tested in GIF  (tested prior to change of C button as mentioned in the inscribe post made by Ashley Steitz)
+'**' indicates tested in GIF  
+<span style="font-size: smaller;"><strong> tested prior to change of C button as mentioned in the inscribe post made by Ashley Steitz </strong></span>
 The following **required** functionality is completed:
 
 * [4x8/3/2x4] User sees: 21.333 **
