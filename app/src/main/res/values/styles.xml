@@ -8,10 +8,9 @@
         <!--  layout_ values determine how much space is taken and makes the width consistent with the parent layout      -->
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_height">1dp</item>
         <!--  given from pdf      -->
         <item name="android:textSize">80sp</item>
-
     </style>
 
     <style name="buttonNumber">
@@ -30,11 +29,10 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <!--  font specified in the pdf      -->
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:onClick">symbolAction</item>
-
     </style>
 
 </resources>
