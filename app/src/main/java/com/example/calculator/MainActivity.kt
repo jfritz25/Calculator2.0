@@ -8,17 +8,34 @@ import android.widget.*
 import java.util.*
 import android.util.Log;
 import kotlin.collections.ArrayList
-
+// Jacob Fritz and Ashley Steitz
 class MainActivity : AppCompatActivity() {
+    /**
+     * MainActivity's AppCompactActivity() function defines the needed global
+     * variables throughout the project
+     * save and allocate the items to their proper data structure.
+     * @param calculatedVar the numerical value (stored as a double
+     * @param compuStack the stack to store th numbers entered by user
+     * @param operStack the stack to store th operators entered by user
+     * @param lastClicked last clicked button stored in case of clearing
+     * @param currCompStack used to store the most current operator
+     * @param currOperStack used to store the most current operator
+     * @return no return - just used for global references
+     */
     var calculatedVar = 0.0                // used to compute the value
     var compuStack = ArrayDeque<Double>() // set as double in case a decimal is included
     var operStack = ArrayDeque<String>() // set as string because operators are stored as a str "+","-",etc.
     var lastClicked = ""                // used for tracking the last value entered to see if the number is part of a larger number or start of an opr.
     var currCompStack = ArrayDeque<Double>()
     var currOperStack = ArrayDeque<String>()
-// Jacob Fritz and Ashley Steitz
 
     override fun onSaveInstanceState(outState: Bundle) {
+        /**
+         * Overriding the onSaveInstanceState function is necessary to
+         * save and allocate the items to their proper data structure.
+         * @param outState passes in the user given data
+         * @return nothing is returned but rather computed and stored for retrevial
+         */
         super.onSaveInstanceState(outState)
         var calculatedVar = calculatedVar             // used to compute the value
         val compuStack = compuStack.toDoubleArray() // set as double in case a decimal is included
@@ -37,8 +54,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     @SuppressLint("SetTextI18n")
-    // creating stacks that are used when we create an instance of the button and set the stacks used for the operators and values
+    /**
+     * This is where the majority of the logic for the buttons comes in. Each follows the same format of creating stacks
+     * that are used when we create an instance of the button and set the stacks used for the operators and values.
+     * Depending on the item in the bundle, the button is created and the associative action is executed
+     * We assign the pressed button to view found in the .xml and then call the onCreate function defrined
+     * referencing the savedInstanceState.
+     * We then call Log.d for debuging purposes and log the message as the button called and the tag for calculator
+     *
+     * @param savedInstanceState passes in the user given data
+     * @return the computed values are displayed in the text view
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         var pulledText = ""
         if (savedInstanceState != null) {
