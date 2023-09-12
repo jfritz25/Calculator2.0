@@ -1,6 +1,7 @@
 package com.example.calculator
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -39,22 +40,28 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     // creating stacks that are used when we create an instance of the button and set the stacks used for the operators and values
     override fun onCreate(savedInstanceState: Bundle?) {
-        if(savedInstanceState != null){
+        var pulledText = ""
+        if (savedInstanceState != null) {
             calculatedVar = savedInstanceState.getDouble("cv")
-            compuStack = ArrayDeque<Double>(savedInstanceState.getDoubleArray("cs")!!.toCollection(ArrayList()))
-            operStack = savedInstanceState.getStringArrayList("cs")?.let { ArrayDeque<String>(it) }!!
+            compuStack = ArrayDeque<Double>(
+                savedInstanceState.getDoubleArray("cs")!!.toCollection(ArrayList())
+            )
+            operStack =
+                savedInstanceState.getStringArrayList("os")?.let { ArrayDeque<String>(it) }!! //here
             lastClicked = savedInstanceState.getString("lc").toString()
-            currCompStack = ArrayDeque<Double>(savedInstanceState.getDoubleArray("ccs")!!.toCollection(ArrayList()))
-            currOperStack = savedInstanceState.getStringArrayList("cos")?.let { ArrayDeque<String>(it) }!!
-            val pulledText = savedInstanceState.getString("mt")
-            val textView = findViewById<TextView>(R.id.mainText)
-            textView.text = pulledText
+            currCompStack = ArrayDeque<Double>(
+                savedInstanceState.getDoubleArray("ccs")!!.toCollection(ArrayList())
+            )
+            currOperStack =
+                savedInstanceState.getStringArrayList("cos")?.let { ArrayDeque<String>(it) }!!
+            pulledText = savedInstanceState.getString("mt").toString()
 
         }
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main)  // uses the layout from the activity_main.xml file
-
+        val textView = findViewById<TextView>(R.id.mainText)
+        textView.text = pulledText
         // when the 0 button is clicked
         val button0 = findViewById<Button>(R.id.button0)
         button0.setOnClickListener {
@@ -70,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 lastClicked = toAdd
             }
             // used to add values if 0 is part of a number (ex 0, 100, 809)
-            else{
+            else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 // lastClicked is now 0
@@ -90,8 +97,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -108,8 +114,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -126,8 +131,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -144,8 +148,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -162,8 +165,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -180,8 +182,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -198,8 +199,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -216,8 +216,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -234,8 +233,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "$toAdd"
                 calculatedVar = "$toAdd".toDouble()
                 lastClicked = toAdd
-            }
-            else{
+            } else {
                 textView.text = "$cur$toAdd"
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
@@ -254,13 +252,13 @@ class MainActivity : AppCompatActivity() {
             while (!compuStack.isEmpty()) {
                 compuStack.pop()
             }
-            while (!operStack.isEmpty()){
+            while (!operStack.isEmpty()) {
                 operStack.pop()
             }
-            while (!currOperStack.isEmpty()){
+            while (!currOperStack.isEmpty()) {
                 currOperStack.pop()
             }
-            while (!currCompStack.isEmpty()){
+            while (!currCompStack.isEmpty()) {
                 currCompStack.pop()
             }
             Log.d("Calculator", "ButtonC Pressed")
@@ -281,18 +279,20 @@ class MainActivity : AppCompatActivity() {
                 lastClicked = "+"
             }
             // now we check if the last item clicked was a diff operator (maybe a user mis-clicking) -> we want to swap them so we
-            else if(lastClicked in arrayOf("*", "+", "-", "/")){
+            else if (lastClicked in arrayOf("*", "+", "-", "/")) {
                 // pop the last operator
                 operStack.pop()
                 // replace with the new operator
                 operStack.push("+")
                 lastClicked = "+"
-            }
-            else {
+            } else {
                 // this is typically the first pressed item or after a clear
                 if (currCompStack.size >= 1) {
-                    val rightSide = if (currCompStack.size == 1){calculatedVar}
-                    else{currCompStack.pop()}
+                    val rightSide = if (currCompStack.size == 1) {
+                        calculatedVar
+                    } else {
+                        currCompStack.pop()
+                    }
                     val leftSide = currCompStack.pop()
                     val op = currOperStack.pop()
                     if (op == "/") {
@@ -660,9 +660,10 @@ class MainActivity : AppCompatActivity() {
 
                     // If string in the expression in list has a decimal then we look at the position and set it to a float
                     if (compuList[0].contains(".0")) {
-                        var leading = compuList[0].substring(0,compuList[0].indexOf(".")).toDouble()
+                        var leading =
+                            compuList[0].substring(0, compuList[0].indexOf(".")).toDouble()
                         // checks if the value is a decimal (ex 0.4 or 0.9999) then set text val to a str
-                        if (kotlin.math.abs(leading) < kotlin.math.abs(compuList[0].toDouble())){
+                        if (kotlin.math.abs(leading) < kotlin.math.abs(compuList[0].toDouble())) {
                             textView.text = compuList[0]
                         }
                         // otherwise we keep it appearing as an int (ex 1.0 or 3.0) then set text val to a str
@@ -693,60 +694,63 @@ class MainActivity : AppCompatActivity() {
             Log.d("Calculator", "Button% Pressed")
 
         }
+        val orientation = resources.configuration.orientation
 
-        val buttonSin = findViewById<Button>(R.id.buttonSin)
-        buttonSin.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.mainText)
-            var lastNum = calculatedVar
-            lastNum = kotlin.math.sin(lastNum)
-            textView.text = lastNum.toString()
-            calculatedVar = lastNum
-            lastClicked = "Sin"
-            Log.d("Calculator", "ButtonSin Pressed")
-        }
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val buttonSin = findViewById<Button>(R.id.buttonSin)
+            buttonSin.setOnClickListener {
+                val textView = findViewById<TextView>(R.id.mainText)
+                var lastNum = calculatedVar
+                lastNum = kotlin.math.sin(lastNum)
+                textView.text = lastNum.toString()
+                calculatedVar = lastNum
+                lastClicked = "Sin"
+                Log.d("Calculator", "ButtonSin Pressed")
+            }
 
-        val buttonCos = findViewById<Button>(R.id.buttonCos)
-        buttonCos.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.mainText)
-            var lastNum = calculatedVar
-            lastNum = kotlin.math.cos(lastNum)
-            textView.text = lastNum.toString()
-            calculatedVar = lastNum
-            lastClicked = "Sin"
-            Log.d("Calculator", "ButtonCos Pressed")
-        }
-        val buttonTan = findViewById<Button>(R.id.buttonTan)
-        buttonTan.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.mainText)
-            var lastNum = calculatedVar
-            lastNum = kotlin.math.cos(lastNum)
-            textView.text = lastNum.toString()
-            calculatedVar = lastNum
-            lastClicked = "Tan"
-            Log.d("Calculator", "ButtonTan Pressed")
+            val buttonCos = findViewById<Button>(R.id.buttonCos)
+            buttonCos.setOnClickListener {
+                val textView = findViewById<TextView>(R.id.mainText)
+                var lastNum = calculatedVar
+                lastNum = kotlin.math.cos(lastNum)
+                textView.text = lastNum.toString()
+                calculatedVar = lastNum
+                lastClicked = "Sin"
+                Log.d("Calculator", "ButtonCos Pressed")
+            }
+            val buttonTan = findViewById<Button>(R.id.buttonTan)
+            buttonTan.setOnClickListener {
+                val textView = findViewById<TextView>(R.id.mainText)
+                var lastNum = calculatedVar
+                lastNum = kotlin.math.cos(lastNum)
+                textView.text = lastNum.toString()
+                calculatedVar = lastNum
+                lastClicked = "Tan"
+                Log.d("Calculator", "ButtonTan Pressed")
 
-        }
-        val buttonLog10 = findViewById<Button>(R.id.buttonLog10)
-        buttonLog10.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.mainText)
-            var lastNum = calculatedVar
-            lastNum = kotlin.math.log10(lastNum)
-            textView.text = lastNum.toString()
-            calculatedVar = lastNum
-            lastClicked = "Log10"
-            Log.d("Calculator", "ButtonLog10 Pressed")
+            }
+            val buttonLog10 = findViewById<Button>(R.id.buttonLog10)
+            buttonLog10.setOnClickListener {
+                val textView = findViewById<TextView>(R.id.mainText)
+                var lastNum = calculatedVar
+                lastNum = kotlin.math.log10(lastNum)
+                textView.text = lastNum.toString()
+                calculatedVar = lastNum
+                lastClicked = "Log10"
+                Log.d("Calculator", "ButtonLog10 Pressed")
 
-        }
-        val buttonln = findViewById<Button>(R.id.buttonLn)
-        buttonln.setOnClickListener{
-            val textView = findViewById<TextView>(R.id.mainText)
-            var lastNum = calculatedVar
-            lastNum = kotlin.math.ln(lastNum)
-            textView.text = lastNum.toString()
-            calculatedVar = lastNum
-            lastClicked = "ln"
-            Log.d("Calculator", "Buttonln Pressed")
+            }
+            val buttonln = findViewById<Button>(R.id.buttonLn)
+            buttonln.setOnClickListener {
+                val textView = findViewById<TextView>(R.id.mainText)
+                var lastNum = calculatedVar
+                lastNum = kotlin.math.ln(lastNum)
+                textView.text = lastNum.toString()
+                calculatedVar = lastNum
+                lastClicked = "ln"
+                Log.d("Calculator", "Buttonln Pressed")
 
+            }
         }
     }
 }
