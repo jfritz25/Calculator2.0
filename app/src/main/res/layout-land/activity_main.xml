@@ -216,7 +216,7 @@
             android:textSize="22sp"/>
         <!--New-->
         <Button
-            android:id="@+id/buttonLog"
+            android:id="@+id/buttonLog10"
             style="@style/buttonSymbol"
             android:layout_margin="1dp"
             app:cornerRadius = "3dp"
