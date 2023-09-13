@@ -743,7 +743,7 @@ class MainActivity : AppCompatActivity() {
                 lastNum = kotlin.math.cos(lastNum)
                 textView.text = lastNum.toString()
                 calculatedVar = lastNum
-                lastClicked = "Sin"
+                lastClicked = "Cos"
                 Log.d("Calculator", "ButtonCos Pressed")
             }
             val buttonTan = findViewById<Button>(R.id.buttonTan)
