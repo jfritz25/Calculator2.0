@@ -46,7 +46,7 @@ I will be using (V) for a vertical orientation and (H) for a horizontal orientat
 See Calculator Demo gif on Github
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/jfritz25/Calculator2.0/blob/master/app/src/main/java/com/example/calculator/Project_%202_GIF.gif' title='Project2 Video Walkthrough' width='50%' alt='Video Walkthrough' />
+<img src='https://github.com/jfritz25/Calculator2.0/blob/master/app/src/main/java/com/example/calculator/Project_%202_GIF.gif' title='Project2 Video Walkthrough' width='50%' height = '50%' alt='Video Walkthrough' />
 
 GIF created with [CloudConvert](https://cloudconvert.com/).
 
