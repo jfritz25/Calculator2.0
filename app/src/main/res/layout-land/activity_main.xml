@@ -251,7 +251,7 @@
             app:cornerRadius = "3dp"
             android:layout_weight="0.5"
             android:text="."
-            android:textSize="22sp"/>
+            android:textSize="28sp"/>
 
        <Button
             android:id="@+id/buttonEquals"

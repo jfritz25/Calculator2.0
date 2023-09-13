@@ -46,22 +46,22 @@ I will be using (V) for a vertical orientation and (H) for a horizontal orientat
 See Calculator Demo gif on Github
 Here's a walkthrough of implemented user stories:
 
-<img src='https://raw.github.iu.edu/jamfritz/Calculator/master/app/src/main/java/com/example/calculator/Calculator%20Demo.gif?token=GHSAT0AAAAAAAAAT6M5WZYLE4KCR2XN2GZKZH43KMA' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
+<img src='https://github.com/jfritz25/Calculator2.0/blob/master/app/src/main/java/com/example/calculator/Project_%202_GIF.gif' title='Project2 Video Walkthrough' width='50%' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with [CloudConvert](https://cloudconvert.com/).
 
 ## Notes
 UI Challenges:
 - Obtaining the rounded edges using on the buttons
 - Moving the activity_main.xml for the landscape view into the layout folder
-- Migraitng to a repo that holds all the data
+- Migrating to a repo that holds all the data
 - Needed to adjust the font when horizontal due to buttons getting smushed
 - Adjusting the bottom row to have a weight of 0.5 in order for the layout to match the on that is provided
   - For me the challenge came from having the android:radius = "3dp" rather than the needed app:cornerRadius = "3dp" approach
 - Setting a style sheet to contain most of the styling factors to limit the code in the driver xml file
-- Figuring out the format of having a rowButton _LinearLayout_ to encapsulate the Buttons in the activity_main.xml to have the buttons sit next to eachother
+- Figuring out the format of having a rowButton _LinearLayout_ to encapsulate the Buttons in the activity_main.xml to have the buttons sit next to each other
 Describe any challenges encountered while building the app.
-
+- Implementing the javadocs was not as much a challenge in general but we needed to make sur our comments were covered in the revised style for documenting our code.
 BACKEND Challenges:
 - Implementing P.E.M.D.A.S into our original implementation of a stack approach
 - Introducing decimals into the visual representation
@@ -69,6 +69,9 @@ BACKEND Challenges:
 - Looking into how to handle % in the middle of an expression (value / 100) vs. comparing to the iPhone's implementation
 - Accounting for longer int(s) / double(s) by concatenating them and adding them to the respective arrays
 - Iterating through the array and completing (* and /) before (+ and -)
+- Not many issues arrose in converting the buttons
+- Understanding the wording to indicate _STORING_ the data when the screen is turned
+- Overriding the functions to contain the states and memory from before
 
 ## License
 
